@@ -1,0 +1,12 @@
+Sada skriptu pro Raspberry Pi, se kterymi je mozne:
+
+* porizovat fotky z pripojene kamery (CAMERA BOARD 5MB REV 1.3)
+* generovat animovany GIF z fotek za poslednich 24 hodin
+* posilat fotky, animaci a provozni informace na externi web
+
+TODO:
+- popsat dukladne ten settings
+- chmod +x
+- requirements
+- /etc/rc.local
+- crontab

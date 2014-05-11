@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hrášek -- Naklíčit, zasadit a pozorovat. Experiment dětí ze ZŠ Žerotínova.">
+    <meta name="author" content="Michal Valoušek, michal@plovarna.cz">
+    <meta name="template" content="Grayscale, https://github.com/IronSummitMedia/startbootstrap/tree/master/templates/grayscale">
+
+    <title>Hrášek &mdash; Dobrodružství v květináči</title>
+
+    {% load static from staticfiles %}
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,800&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+
+    <!-- Custom Theme CSS -->
+    <link href="{% static "css/grayscale.css" %}" rel="stylesheet">
+    <style type="text/css">
+        .intro {
+            background-image:url(/uploads/last_gradient.jpg{% if last_receive %}?nocache={{ last_receive|date:"c" }}{% endif %});
+        }
+    </style>
+
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
+    {% load typo %}
+    {% filter honzova_typoska %}
+        <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand" href="#page-top">
+                        <i class="fa fa-leaf"></i> Dobrodružství v květináči
+                    </a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                    <ul class="nav navbar-nav">
+                        <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                        <li class="hidden">
+                            <a href="#page-top"></a>
+                        </li>
+                        <li class="page-scroll">
+                            <a href="#projekt">O projektu</a>
+                        </li>
+                        <li class="page-scroll">
+                            <a href="#ted">Právě teď</a>
+                        </li>
+                        <li class="page-scroll">
+                            <a href="#komentare">Komentáře</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container -->
+        </nav>
+
+        <section class="intro">
+            <div class="intro-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2">
+                            <h1 class="brand-heading">Hrášek</h1>
+                            <p class="intro-text">Naklíčit, zasadit a pozorovat.<br>Experiment dětí ze <a href="http://www.zszerotinova.cz/">ZŠ Žerotínova</a>.</p>
+                            <div class="page-scroll">
+                                <a href="#projekt" class="btn btn-circle">
+                                    <i class="fa fa-angle-double-down animated"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projekt" class="container content-section text-center">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h2>Pár slov o projektu</h2>
+                    <p>Zajímalo nás, jak roste hrách.<br>
+                    Paní učitelka naklíčila pár kuliček a donesla do třídy<br><em>(<a href="http://www.zszerotinova3b.estranky.cz/">třetíbé</a>, kdyby vás to zajímalo)</em>.<br>
+                    Taťka od Fany vyrobil přístroj, který naši rostlinku pořád fotí.{% if photos_count %}<br><em>Už máme {{ photos_count }} obrázků!{% endif %}</em><br>
+                    My (<em>třetíbé</em>) jsme hrách zasadili, napustili vodu do konvičky a rostlinku pravidelně zaléváme.</p>
+                    <p>No.<br>A jestli všechno klapne jak má, tak z toho nakonec uděláme video a pochlubíme se s ním. Držte nám palce.<br>Nebo konve.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="ted" class="container content-section text-center">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h2>Každých 10 minut mačkáme spoušť.<br>Ve dne, v noci.</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <h4>Nejčerstvější fotka{% if last_receive %} -- {{ last_receive|date }}:22{% endif %}</h4>
+                    <img src="/uploads/last.jpg{% if last_receive %}?nocache={{ last_receive|date:"c" }}{% endif %}" class="img-responsive" />
+                </div>
+                <div class="col-lg-6">
+                    <h4>Co se stalo za posledních 24 hodin</h4>
+                    <img src="/uploads/timelapse.gif{% if last_receive %}?nocache={{ last_receive|date:"c" }}{% endif %}" class="img-responsive" />
+                </div>
+            </div>
+        </section>
+
+        <section id="komentare" class="container content-section text-center">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h2>Komentáře</h2>
+                    <p>
+                        Zaujalo vás něco? Chcete povzbudit naši rostlinku? Máte dotaz?<br>
+                        Napište nám!
+                    </p>
+
+                    {# disqus #}
+                    <div id="disqus_thread"></div>
+                    <script type="text/javascript">
+                        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                        var disqus_shortname = 'tritikale'; // required: replace example with your forum shortname
+
+                        /* * * DON'T EDIT BELOW THIS LINE * * */
+                        (function() {
+                            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                        })();
+                    </script>
+                    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                </div>
+            </div>
+        </section>
+
+        {% comment %}
+        <section class="container content-section text-center">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <ul class="list-inline banner-social-buttons">
+                        <li><a href="" class="btn btn-default btn-lg"> <span class="network-name">Stránky 3.B</span></a></li>
+                        <li><a href="" class="btn btn-default btn-lg"> <span class="network-name">Stránky školy</span></a></li>
+                    </ul>
+                    <p>&nbsp;</p>
+                </div>
+            </div>
+        </section>
+        {% endcomment %}
+
+    {% endfilter %}
+    <!-- Core JavaScript Files -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="{% static "js/grayscale.js" %}"></script>
+
+</body>
+
+</html>
