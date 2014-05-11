@@ -105,7 +105,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-6">
-                    <h4>Nejčerstvější fotka{% if last_receive %} -- {{ last_receive|date }}:22{% endif %}</h4>
+                    <h4>Nejčerstvější fotka{% if last_receive %} -- {{ last_receive|date }}{% endif %}</h4>
                     <img src="/uploads/last.jpg{% if last_receive %}?nocache={{ last_receive|date:"c" }}{% endif %}" class="img-responsive" />
                 </div>
                 <div class="col-lg-6">
