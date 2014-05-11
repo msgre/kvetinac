@@ -21,9 +21,8 @@ fi
 # kazdou novou fotku hnedle uploadnem na server
 cp $PHOTOS_DIR/latest.jpg $PHOTOS_DIR/1500x1125/
 mogrify -resize 1500x1125 $PHOTOS_DIR/1500x1125/latest.jpg
-# TODO:
-# $BIN_DIR/posli_obrazek.py posledni $PHOTOS_DIR/1500x1125/latest.jpg
-# rm $PHOTOS_DIR/1500x1125/latest.jpg
+$BIN_DIR/posli_obrazek.py posledni $PHOTOS_DIR/1500x1125/latest.jpg
+rm $PHOTOS_DIR/1500x1125/latest.jpg
 
 # kazdou celou hodinu vyrobime novy animovany GIF
 MINUTE=$(date +"%M")
@@ -35,7 +34,5 @@ if [ "$MINUTE" = "50" ]
        $BIN_DIR/vytvor_gif.sh
 fi
 
-
 # poslem na server info o aktualnich poctech fotek
-# TODO:
-# $BIN_DIR/posli_data.py $PHOTOS_DIR
+$BIN_DIR/posli_data.py $PHOTOS_DIR

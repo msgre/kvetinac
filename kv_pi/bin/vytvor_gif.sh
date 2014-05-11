@@ -7,5 +7,4 @@
 convert -delay 30 -loop 0 /home/pi/photos/640x480/*.jpg /home/pi/photos/640x480/timelapse.gif
 
 # posleme animovany gif na server
-# TODO:
-# /home/pi/bin/posli_obrazek.py animace /home/pi/photos/640x480/timelapse.gif
+/home/pi/bin/posli_obrazek.py animace /home/pi/photos/640x480/timelapse.gif

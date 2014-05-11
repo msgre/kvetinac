@@ -38,6 +38,6 @@ if __name__ == '__main__':
     url = URL + 'data.json'
     filelist = [i for i in os.listdir(path) if i.endswith('.jpg')]
     data = {'photos_count': len(filelist)}
-    r = requests.post(url, data=json.dumps(data), headers=HEADERS)
+    r = requests.post(url, data=json.dumps(data), headers=HEADERS, timeout=90)
     if r.status_code != 200:
         sys.exit('Data se nepovedlo nahrat na server.')

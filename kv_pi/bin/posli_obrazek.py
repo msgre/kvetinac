@@ -45,7 +45,7 @@ if __name__ == '__main__':
     # odeslani dat na server
     url = URL + TYPES.get(sys.argv[1])
     files = {'file': open(filepath, 'rb')}
-    r = requests.post(url, files=files, headers=HEADERS)
+    r = requests.post(url, files=files, headers=HEADERS, timeout=90)
     if r.status_code != 200:
         print r.content
         sys.exit('Obrazek se nepovedlo nahrat na server.')
