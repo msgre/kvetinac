@@ -5,6 +5,9 @@ kterého děcka základní školy (a nejen ty) sledují růst hrachu. Přes den 
 běžné výuky se o rostlinu starají, odpoledne, večer či o víkendu pak přes
 internet sledují její aktuální stav.
 
+V principu jde o jednoduchý přístroj, který si můžete sami vyrobit a následně
+využít k realizaci obdobného projektu.
+
 ![Takhle rostl hrášek v 3.B ZŠ Žerotínovy z ValMezu](https://raw.github.com/msgre/kvetinac/master/docs/img/timelapse.gif)
 
 
