@@ -1,26 +1,102 @@
-Support webik pro projekt "Dobrodruzstvi v kvetinaci".
+# O co jde
 
-## O co jde
+[Dobrodružství v květináči](http://kvetinac.tkalci.cz/) je projekt, s pomocí
+kterého děcka základní školy (a nejen ty) sledují růst hrachu. Přes den v rámci
+běžné výuky se o rostlinu starají, odpoledne, večer či o víkendu pak přes
+internet sledují její aktuální stav.
 
-Decka maji ve tride Raspberry Pi s pripojenou kamerou a kvetinacem se zasazenou
-rostlinou. Raspberry co 10 minut porizuje snimek a uklada jej k sobe na SD
-kartu. Rostlinka se foti celych 24 hodin, pres noc si Raspberry zapina lampicku,
-aby z fotek neco bylo.
+![Takhle rostl hrášek v 3.B ZŠ Žerotínovy z ValMezu](https://raw.github.com/msgre/kvetinac/master/docs/img/timelapse.gif)
 
-Aby decka i jejich rodice meli moznost sledovat co se s rostlinkou deje
-odpoledne, vecer ci o vikendu, vznikl tento projekt. Jde o jednoduche webove
-stranky napsane ve frameworku Django, ktere plni nasledujici role:
 
-* prijima obrazky z Raspberry; jednak nejaktualnejsi fotku rostlinky (ktera
-  slouzi jako hlavni obrazek na pozadi), ale take jednoduchou GIF animaci,
-  ktera prezentuje vyvoj rostliny za poslednich 24 hodin
-* prijima "metainformace" z provozu, momentalne pouze pocet nasnimanych fotek,
-  ktere se pak zobrazuji v textu.
+## Technické řešení
 
-Komunikaci prostrednictvim komentaru obstarava Disqus.
+![Heblo par excellence](https://raw.github.com/msgre/kvetinac/master/docs/img/heblo.jpg)
 
-TODO:
-- nemame DB
-- settings_auth
-- dekovacka
-- sablony, bootstrap, OS obecne
+Poblíž rostliny je umístěn malý počítač Raspberry Pi vybavený webovou kamerou,
+který každých 10 minut pořídí snímek hrachu. Focení probíhá nepřetržitě celých
+24 hodin. V noci, když je nedostatek okolního světla, se rostlina přisvětluje
+externí lampičkou (před pořízením snímku se zapne, po vyfocení zase vypne).
+
+## Podpůrný web
+
+Samotné focení by děcka rychle omrzelo. Měly by možná zážitek se zprovozněním
+aparátu, pak by ale musely 2-3 týdny čekat než by se s fotkama dál něco
+udělalo. Rozhodl jsem se proto doplnit Raspberry jednoduchým webem a udělat z
+růstu hrášku malou reality show.
+
+![Webová reality show](https://raw.github.com/msgre/kvetinac/master/docs/img/web.png)
+
+Raspberry je připojeno do sítě a každých 10 minut posílá na web aktuální fotku
+společně s informaci o celkovém počtu již nasnímaných obrázků. Kromě toho
+každou hodinu seskládá krátkou animaci dokumentující vývoj růstu za posledních
+24 hodin (tj. pokud se na web podívám ve 14 hodin, uvidím události od
+včerejších 14 hodin do dnešních 14 hodin).
+
+Součástí webu je i jednoduché fórum, ve kterém děti můžou kytku povzbuzovat.
+
+## Video
+
+Z nafocených snímků následně vznikne
+[časosběrné](http://cs.wikipedia.org/wiki/%C4%8Casosb%C4%9Br) video, které bude
+atraktivním způsobem dokumentovat celý růst rostliny. Každý den Raspberry
+nafotí 144 snímků. Úměrně k délce sledování pak vznikne krátký film (při
+dvoutýdenním snímání o délce 1:20, při třítýdenním 2:00).
+
+Při domácích pokusech jsme natočili růst [rostlinky
+rajčete](http://youtu.be/Uoc0VKTS82I) a [odkvétání
+tulipánu](http://youtu.be/WhbXkk_aydg) (oboje ještě bez lampičky, snímané pouze
+v denních časech).
+
+
+# Software
+
+Aby vše fungovalo jak má, je třeba Raspberry naučit fotit a zprovoznit web
+(ten přímo nutný není, je to s ním ale větší sranda).
+
+V adresáři `kv_pi` je sada skriptů, která se stará o pořizování fotek,
+generováni animovaného GIFu a odesílání dat na podpůrný server.
+
+V adresáři `kv_web` je kód webové aplikace napsané ve frameworku Django,
+který se stará o příjem dat z Raspberry a o jejich následnou prezentaci
+ve formě jednoduché webové stránky.
+
+*Podrobnější dokumentace jak obě SW řešení zprovoznit bude doplněn později.*
+
+
+# Dotazy
+
+**Co je to Raspberry Pi?**
+
+[Malý a levný počítač o velikosti platební
+karty](http://cs.wikipedia.org/wiki/Raspberry_Pi). Pokud k Raspberry připojíte
+klasické periferie (monitor, klávesnici, myš, externí disk), můžete jej
+využívat jako klasický počítač (sice s nijak ohromujícím výkonem, ale plně
+funkční).
+
+Z Raspberry ale čouhá několik drátů, ke kterým s trochou šikovnosti můžete
+připojit kde co. V případě našeho projektu jsme jej doplnili webovou kamerou,
+a jednoduchou elektronikou, která ve večerních hodinách spíná externí lampičku.
+
+**Kolik to stálo?**
+
+Raspberry Pi (model B) stojí přibližně 850 Kč, kamerový modul kolem 700 Kč.
+Pro napájení je použitá nabíječka mobilních telefonů (cca 250 Kč). Raspberry
+pro své fungování potřebuje SD kartu o velikosti minimálně 4 GB (cca 100 Kč).
+Elektronika pro spínání externího světla vyšla na cca 100 Kč.
+
+Celkem si tedy připravte něco okolo 2000 Kč. Je ale docela možné, že některá z
+komponent se vám povaluje někde doma (nabíječka, stará SD karta z telefonu či
+foťáku, stará LED baterka, apod.).
+
+*Přibližné ceny v květnu 2014.*
+
+
+**Dal by se projekt využít i jinak?**
+
+Určitě! V principu nejde o nic jiného než o dlouhodobé a pravidelné pořizování
+fotek (s luxusní možností ovládat externí zařízení; v našem případě lampy pro
+noční přisvětlování).
+
+Pokud byste chtěli sledovat líhnutí motýla, růst krystalu nebo plísně na chlebu,
+můžete tento projekt s minimální modifikací využít (obecně uvažujte o
+jakémkoliv pomalém ději, který se dá dokumentovat s periodou v řádech minut).
