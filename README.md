@@ -65,19 +65,19 @@ ve formě jednoduché webové stránky.
 
 # Dotazy
 
-**Co je to Raspberry Pi?**
+### Co je to Raspberry Pi?
 
 [Malý a levný počítač o velikosti platební
 karty](http://cs.wikipedia.org/wiki/Raspberry_Pi). Pokud k Raspberry připojíte
 klasické periferie (monitor, klávesnici, myš, externí disk), můžete jej
-využívat jako klasický počítač (sice s nijak ohromujícím výkonem, ale plně
+využívat jako normální počítač (sice s nijak ohromujícím výkonem, ale plně
 funkční).
 
 Z Raspberry ale čouhá několik drátů, ke kterým s trochou šikovnosti můžete
-připojit kde co. V případě našeho projektu jsme jej doplnili webovou kamerou,
+připojit kde co. V případě našeho projektu jsme jej doplnili webovou kamerou
 a jednoduchou elektronikou, která ve večerních hodinách spíná externí lampičku.
 
-**Kolik to stálo?**
+### Kolik to stálo?
 
 Raspberry Pi (model B) stojí přibližně 850 Kč, kamerový modul kolem 700 Kč.
 Pro napájení je použitá nabíječka mobilních telefonů (cca 250 Kč). Raspberry
@@ -85,13 +85,12 @@ pro své fungování potřebuje SD kartu o velikosti minimálně 4 GB (cca 100 K
 Elektronika pro spínání externího světla vyšla na cca 100 Kč.
 
 Celkem si tedy připravte něco okolo 2000 Kč. Je ale docela možné, že některá z
-komponent se vám povaluje někde doma (nabíječka, stará SD karta z telefonu či
-foťáku, stará LED baterka, apod.).
+komponent se vám povaluje doma (nabíječka, stará SD karta z telefonu či
+foťáku, LED baterka, apod.).
 
 *Přibližné ceny v květnu 2014.*
 
-
-**Dal by se projekt využít i jinak?**
+### Dal by se projekt využít i jinak?
 
 Určitě! V principu nejde o nic jiného než o dlouhodobé a pravidelné pořizování
 fotek (s luxusní možností ovládat externí zařízení; v našem případě lampy pro
