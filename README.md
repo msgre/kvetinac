@@ -89,7 +89,7 @@ Elektronika pro spínání externího světla vyšla na cca 100 Kč.
 
 Celkem si tedy připravte něco okolo 2000 Kč. Je ale docela možné, že některá z
 komponent se vám povaluje doma (nabíječka, stará SD karta z telefonu či
-foťáku, LED baterka, apod.).
+foťáku, LED baterka, apod.) a dostanete se tak na nižší náklady.
 
 *Přibližné ceny v květnu 2014.*
 

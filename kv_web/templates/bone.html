@@ -65,8 +65,13 @@
                             <a href="#projekt">O projektu</a>
                         </li>
                         <li class="page-scroll">
+                            <a href="#video">Video</a>
+                        </li>
+                        {% comment %}
+                        <li class="page-scroll">
                             <a href="#ted">Právě teď</a>
                         </li>
+                        {% endcomment %}
                         <li class="page-scroll">
                             <a href="#komentare">Komentáře</a>
                         </li>
@@ -103,11 +108,21 @@
                     Paní učitelka naklíčila pár kuliček a donesla do třídy<br><em>(<a href="http://www.zszerotinova3b.estranky.cz/">třetíbé</a>, kdyby vás to zajímalo)</em>.<br>
                     Taťka od Fany vyrobil přístroj, který naši rostlinku pořád fotí.{% if photos_count %}<br><em>Už máme {{ photos_count }} obrázků!{% endif %}</em><br>
                     My (<em>třetíbé</em>) jsme hrách zasadili, napustili vodu do konvičky a rostlinku pravidelně zaléváme.</p>
-                    <p>No.<br>A jestli všechno klapne jak má, tak z toho nakonec uděláme video a pochlubíme se s ním. Držte nám palce.<br>Nebo konve.</p>
+                    {#<p>No.<br>A jestli všechno klapne jak má, tak z toho nakonec uděláme video a pochlubíme se s ním. Držte nám palce.<br>Nebo konve.</p>#}
                 </div>
             </div>
         </section>
 
+        <section id="video" class="container content-section text-center">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h2>A takhle to celé dopadlo</h2>
+                    <iframe width="840" height="630" src="//www.youtube.com/embed/rRzulXG4nac" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        {% comment %}
         <section id="ted" class="container content-section text-center">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
@@ -125,6 +140,7 @@
                 </div>
             </div>
         </section>
+        {% endcomment %}
 
         <section id="komentare" class="container content-section text-center">
             <div class="row">
