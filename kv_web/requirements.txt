@@ -1,4 +1,4 @@
-Django==1.6.4
+Django==2.2.26
 tipi==0.0.3
 django-redis-cache==0.11.1
 Pillow==2.4.0
